@@ -3,7 +3,6 @@ import express from 'express';
 import { nanoid } from 'nanoid'
 import { client } from './../mongodb.mjs'
 import { ObjectId } from 'mongodb'
-import moment from 'moment';
 
 const db = client.db("cruddb");
 const col = db.collection("posts");

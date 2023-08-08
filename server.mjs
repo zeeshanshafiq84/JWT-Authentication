@@ -22,14 +22,14 @@ app.use(express.json()); // body parser
 app.use("/api/v1", authRouter)
 
 
-//app.use((req, res, next) => {
-   // let token = "valid"
-   // if (token === "valid") {
-  //      next();
-   // } else {
-   //     res.send({ message: "invalid token" })
-   // }
-//})
+app.use((req, res, next) => {   //JWT
+    let token = "valid"
+    if (token === "valid") {
+        next();
+    } else {
+        res.send({ message: "invalid token" })
+  }
+})
 
 
 app.use("/api/v1", postRouter)
