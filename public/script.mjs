@@ -50,6 +50,11 @@ window.getAllPost = function () {
             // handle error
             console.log(error.data);
             document.querySelector("#result").innerHTML = "error in post submission"
+        
+        
+            if (error.response.status ===401) {
+                window.location.href = "/login.html";
+            }
         })
 }
 

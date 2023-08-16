@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import jwt from 'jsonwebtoken';
+import cookieParser from 'cookie-parser'
 import 'dotenv/config'
 const __dirname = path.resolve();
 
@@ -9,7 +10,7 @@ import authRouter from './routes/auth.mjs'
 import commentRouter from './routes/comment.mjs'
 import feedRouter from './routes/feed.mjs'
 import postRouter from './routes/post.mjs'
-import cookieParser from 'cookie-parser'
+
 import { decode } from 'punycode';
 
 
@@ -26,6 +27,10 @@ app.use(cookieParser()); // body parser
 
 // /api/v1/login
 app.use("/api/v1", authRouter)
+
+app.use("/static", express.static(path.join(__dirname, 'static')))
+
+app.use(express.static(path.join(__dirname, 'public')))
 
 
 app.use((req, res, next) => {   //JWT
@@ -58,10 +63,8 @@ app.use("/api/v1", postRouter)
 
 
 
-//     /static/vscode_windows.exe
-app.use("/static", express.static(path.join(__dirname, 'static')))
 
-app.use(express.static(path.join(__dirname, 'public')))
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
