@@ -4,6 +4,8 @@ let signUp = document.getElementById('signUp');
 
 signUp.addEventListener('click', function(){
 
+    let firstName = document.getElementById('firstName').value
+    let lastName = document.getElementById('lastName').value
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
 
