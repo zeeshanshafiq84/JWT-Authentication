@@ -7,7 +7,7 @@ signUp.addEventListener('click', function(){
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
 
-    axios.post('/apiv1/sigUp',{email: email, password: password})
+    axios.post('/apiv1/signup',{email: email, password: password})
     .then((res)=>{
         console.log('Done!:' res.data)
     })
